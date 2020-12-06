@@ -1096,7 +1096,7 @@ body.ie ._ibg img {
   z-index: 100;
   padding: 30px 10px;
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -1172,6 +1172,7 @@ body.ie ._ibg img {
       -ms-flex-pack: center;
           justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup__body {
@@ -1372,10 +1373,6 @@ body.ie ._ibg img {
 .page__container {
   padding: 0 15px;
   margin: 0 auto;
-}
-
-.video-1 {
-  display: none;
 }
 
 @media (min-width: 530px) {
