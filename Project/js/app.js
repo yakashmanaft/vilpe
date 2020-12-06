@@ -1,24 +1,19 @@
 function email_test(input) {
 	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
-// var mySwiper = new Swiper('.swiper-container', {
-// 	pagination: {
-// 	  el: '.swiper-pagination',
-// 	  dynamicBullets: true,
-//     },
-//     mousewheel: {
-//         invert: true,
-//         cssMode: true,
-//       },
-//     flipEffect: {
-//     slideShadows: false,
-//     },
-//     draggable: true,
-//     loop: true,
-//     autoplay: {
-//         delay: 5000,
-//       },
-// });
+// Функционал для лайтгалери.. видосики почему-то не подцепляет по ссылке с ютуба..
+
+// lightGallery(document.getElementById('#video-gallery'), {
+//     controls: false,
+//     counter: false,
+//     closable: true,
+//     autoplay: true,
+// }); 
+
+
+// let playFirstVideo = document.querySelector('#play1');
+// console.log(playFirstVideo)
+
 
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf("MSIE ");
@@ -1397,16 +1392,16 @@ if (sliders) {
 	sliders_bild_callback();
 }
 
-function sliders_bild_callback(params) { }
+function sliders_bild_callback(params) {}
 
 let slider_about = new Swiper('.swiper-container', {
 	/*
 	effect: 'fade',
-	autoplay: {
-		delay: 3000,
-		disableOnInteraction: false,
-	},
 	*/
+	// autoplay: {
+	// 	delay: 5000,
+	// 	disableOnInteraction: false,
+	// },
 	observer: true,
 	observeParents: true,
 	slidesPerView: 1,
@@ -1418,7 +1413,7 @@ let slider_about = new Swiper('.swiper-container', {
 	loop: true,
 	draggable: true,
 	//preloadImages: false,
-	//lazy: true,
+	lazy: true,
 	// Dotts
 	pagination: {
 		el: '.swiper-pagination',
@@ -1456,7 +1451,7 @@ let slider_about = new Swiper('.swiper-container', {
 		},
 	}
 	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
+	// scrollbar: {
+	// 	el: '.swiper-scrollbar',
+	// }
 });
