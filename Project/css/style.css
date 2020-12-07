@@ -925,7 +925,7 @@ body.ie ._ibg img {
 
 .swiper-pagination-bullets {
   position: absolute;
-  left: 43%;
+  left: 40%;
   bottom: 0;
 }
 
@@ -966,6 +966,10 @@ body.ie ._ibg img {
 
 .swiper-slide-right p {
   font-size: 14px;
+}
+
+.swiper-slide-right p span {
+  color: red;
 }
 
 .swiper-slide img {
@@ -1094,7 +1098,6 @@ body.ie ._ibg img {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 100;
-  padding: 30px 10px;
   position: fixed;
   top: 0;
   left: 0;
@@ -1103,12 +1106,13 @@ body.ie ._ibg img {
   -webkit-transition: visibility 0.8s ease 0s;
   -o-transition: visibility 0.8s ease 0s;
   transition: visibility 0.8s ease 0s;
+  background-color: #fff;
   visibility: hidden;
 }
 
 .popup::before {
   content: "";
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   width: 100%;
   height: 100%;
@@ -1185,15 +1189,20 @@ body.ie ._ibg img {
   background-color: #fff;
   padding: 50px;
   width: 100%;
-  max-width: 800px;
+  max-width: 1300px;
+}
+
+.popup__body-video {
+  background-color: transparent;
+  padding: 0;
 }
 
 .popup__close {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 30px;
+  right: 30px;
   cursor: pointer;
   z-index: 30;
   background: url("../img/icons/close.svg") 0 0 no-repeat;
@@ -1349,6 +1358,55 @@ body.ie ._ibg img {
   margin: 0px 0px 0px 0px;
 }
 
+.product-type__app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-type__app a {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.product-type__app a:first-of-type {
+  margin-left: 0;
+}
+
+.product-type-line {
+  width: 100%;
+  border-bottom: 1px solid #e3e3e3;
+  margin: 20px auto;
+}
+
+.product-type.wlogo p {
+  margin-left: 0;
+}
+
+.product-type.wlogo:first-of-type {
+  margin-top: 40px;
+}
+
+.product-type.wlogo div > p {
+  margin-top: 20px;
+}
+
+.product-type.wlogo div {
+  margin-top: -10px;
+  margin-left: 10px;
+}
+
+.product-type.wlogo div:first-of-type {
+  margin-left: 0px;
+}
+
+.product-type.wlogo div > p.wlogo-text {
+  margin-top: 0;
+}
+
 .product-type__logo img {
   width: 40px;
   height: 40px;
@@ -1466,7 +1524,7 @@ body.ie ._ibg img {
 
   h3 {
     font-size: 36px;
-    max-width: 467px;
+    max-width: 600px;
   }
 
   .subheading {
