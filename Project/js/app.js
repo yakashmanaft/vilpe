@@ -1,6 +1,7 @@
 function email_test(input) {
 	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
+
 // Функционал для лайтгалери.. видосики почему-то не подцепляет по ссылке с ютуба..
 
 // lightGallery(document.getElementById('#video-gallery'), {
@@ -10,10 +11,95 @@ function email_test(input) {
 //     autoplay: true,
 // }); 
 
+let textColor = '#999999';
+let headingCOlor = '#012C7B';
 
-// let playFirstVideo = document.querySelector('#play1');
-// console.log(playFirstVideo)
 
+//Функция переключения табов в разделах
+
+function thetabs (tabsSelector, tabsContentSelector, tabsParentSelector, activeClass, tabsPrevSelector) {
+
+    let thetabs = document.querySelectorAll(tabsSelector),
+        tabsContent = document.querySelectorAll(tabsContentSelector),
+        tabsParent = document.querySelector(tabsParentSelector),
+        tabsPrev = document.querySelector(tabsPrevSelector);
+
+    function hideTabContent() {
+        tabsContent.forEach(item => {
+            item.classList.add('hide');
+            item.classList.remove('show', 'fade');
+        });
+
+        thetabs.forEach(item => {
+            item.classList.remove(activeClass);
+            item.setAttribute('style', `color: ${textColor}`);
+        });
+    }
+
+    function showTabContent(i = 0) {
+        tabsContent[i].classList.add('show', 'fade');
+        tabsContent[i].classList.remove('hide');
+        // thetabs[i].classList.add(activeClass);
+        thetabs[i].setAttribute('style', `color: ${headingCOlor}`);
+    }
+
+    hideTabContent();
+    showTabContent();
+
+    tabsParent.addEventListener('click', e => {
+        const target = e.target;
+        if(target && target.classList.contains(tabsSelector.slice(1))) {
+            thetabs.forEach((item, i) => {
+                if (target == item) {
+                    hideTabContent();
+                    showTabContent(i);
+                } 
+            });
+        }
+    });
+
+
+
+    
+}
+thetabs('.nav-more__tab', '.tabcontent', '.nav-more__tabs', '.nav-more__tab-active', '.arrow-left');
+
+// Свернуть развернуть раздел
+
+function collapseExpand (upperSelector, upperASelector, arrowExpendSelector, hidesBlockSelector) {
+    let upperBtn = document.querySelectorAll(upperSelector);
+    let hidesBlock = document.querySelector(hidesBlockSelector);
+    let upperBtnA = document.querySelectorAll(upperASelector);
+    let arrowExpend = document.querySelectorAll(arrowExpendSelector);
+
+    function changeCollapseExpand () {
+        upperBtn.forEach(item => {
+            item.addEventListener('click', function (e) {
+                hidesBlock.classList.toggle('hide');
+
+                upperBtnA.forEach(item => {
+                    if (item.innerHTML === 'Подробнее') {
+                        item.innerHTML = "Свернуть";
+                    }else {
+                        item.innerHTML = 'Подробнее';
+                    }
+                }); 
+                
+                arrowExpend.forEach(item => {
+                    if (item.classList.contains('arrow-rollup')) {
+                        item.classList.remove('arrow-rollup');
+                    } else {
+                        item.classList.add('arrow-rollup');
+                    }
+                });
+            });
+        });
+    }
+    changeCollapseExpand ();
+
+}
+
+collapseExpand('.collapseExpend', '.with-a', '.arrow-expend', '.hides-block');
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf("MSIE ");
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
