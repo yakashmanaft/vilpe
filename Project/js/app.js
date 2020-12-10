@@ -2,18 +2,8 @@ function email_test(input) {
 	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
 
-// Функционал для лайтгалери.. видосики почему-то не подцепляет по ссылке с ютуба..
-
-// lightGallery(document.getElementById('#video-gallery'), {
-//     controls: false,
-//     counter: false,
-//     closable: true,
-//     autoplay: true,
-// }); 
-
 let textColor = '#999999';
 let headingCOlor = '#012C7B';
-
 
 //Функция переключения табов в разделах
 
@@ -63,6 +53,7 @@ function thetabs (tabsSelector, tabsContentSelector, tabsParentSelector, activeC
     
 }
 thetabs('.nav-more__tab', '.tabcontent', '.nav-more__tabs', '.nav-more__tab-active', '.arrow-left');
+thetabs('.nav-more__tab-pipe', '.tabcontent-pipe', '.nav-more__tabs-pipe', '.nav-more__tab-active', '.arrow-left');
 
 // Свернуть развернуть раздел
 
@@ -100,6 +91,24 @@ function collapseExpand (upperSelector, upperASelector, arrowExpendSelector, hid
 }
 
 collapseExpand('.collapseExpend', '.with-a', '.arrow-expend', '.hides-block');
+collapseExpand('.collapseExpend-pipe', '.with-a-pipe', '.arrow-expend-pipe', '.hides-block-pipe');
+
+
+// Функция подтягивания инфы товаров в модалку товаров
+
+let image = document.querySelectorAll('.price');
+
+function getIt () {
+    image.forEach(item => {
+        item.addEventListener('click', () => {
+            console.log(item.src);
+        })
+    });
+}
+getIt();
+
+
+
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf("MSIE ");
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
@@ -411,7 +420,7 @@ function popup_open(item, video = '') {
 	if (activePopup.length > 0) {
 		popup_close('', false);
 	}
-	// let curent_popup = document.querySelector('.popup');
+
 	let curent_popup = document.querySelector('.popup_' + item);
 	if (curent_popup && unlock) {
 		if (video != '' && video != null) {
@@ -463,6 +472,7 @@ document.addEventListener('keydown', function (e) {
 		popup_close();
 	}
 });
+
 //=================
 //SlideToggle
 let _slideUp = (target, duration = 500) => {
@@ -1732,3 +1742,8 @@ let slider_app = new Swiper('.swiper-container__app', {
 	// 	el: '.swiper-scrollbar',
 	// }
 });
+
+// Слайдер в pipe не требуется (воздуховоды)
+
+
+

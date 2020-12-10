@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "Gothic-Century";
+  font-family: "GothicCentury";
   font-display: swap;
   src: url("../fonts/Gothic-Century.woff") format("woff"), url("../fonts/Gothic-Century.woff2") format("woff2");
   font-weight: 400;
@@ -47,7 +47,7 @@ body {
 
 body {
   line-height: 1;
-  font-family: "Gothic-Century", sans-serif;
+  font-family: "GothicCentury", sans-serif;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -56,7 +56,7 @@ body {
 input,
 button,
 textarea {
-  font-family: "Gothic-Century", sans-serif;
+  font-family: "GothicCentury", sans-serif;
 }
 
 input::-ms-clear {
@@ -604,6 +604,7 @@ h3 {
 
 h4 {
   font-size: 24px;
+  line-height: 1.4;
   margin: 0px 0px 40px 0px;
 }
 
@@ -1245,6 +1246,10 @@ body.ie ._ibg img {
   right: 30px;
   cursor: pointer;
   z-index: 30;
+  background: url("../img/icons/close-blue.svg") 0 0 no-repeat;
+}
+
+.popup__close-w {
   background: url("../img/icons/close.svg") 0 0 no-repeat;
 }
 
@@ -1460,6 +1465,69 @@ body.ie ._ibg img {
   font-size: 18px !important;
   white-space: nowrap;
   color: #012C7B;
+}
+
+.pipe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.pipe-head {
+  margin-right: 50px;
+}
+
+.pipe-goods {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 60px !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.pipe-good {
+  width: 100%;
+  max-width: 276px;
+  cursor: pointer;
+}
+
+.pipe-good__heading {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding: 15px 5px 0px 10px;
+  color: #999999;
+}
+
+.pipe-good__price {
+  font-size: 18px !important;
+  white-space: nowrap;
+  color: #012C7B;
+  text-align: right;
+  margin-top: 20px;
+  padding: 0px 5px 15px 5px;
+}
+
+.pipe-good:hover,
+.pipe-good:target {
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .page {
@@ -1693,7 +1761,8 @@ body.ie ._ibg img {
 .__btn .arrow{background:url("../img/icons/arrow-right-gray.svg") 0 0 no-repeat}
 .__btn .arrow-consult{background:url("../img/icons/arrow-right-blue.svg") 0 0 no-repeat}
 #map{background:url("../img/icons/loading.gif") center/50px no-repeat}
-.popup__close{background:url("../img/icons/close.svg") 0 0 no-repeat}
+.popup__close{background:url("../img/icons/close-blue.svg") 0 0 no-repeat}
+.popup__close-w{background:url("../img/icons/close.svg") 0 0 no-repeat}
 }
 
  @media (min-width: 530px){
