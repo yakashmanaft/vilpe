@@ -1530,6 +1530,29 @@ body.ie ._ibg img {
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
+.about__good-top {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.text-img-big {
+  width: 100%;
+  max-height: 645px;
+}
+
+.text-img-big:last-of-type {
+  display: none;
+}
+
+.text-img-small {
+  max-width: 100px;
+  width: 100%;
+  max-height: 100px;
+  height: 100%;
+}
+
 .page {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;

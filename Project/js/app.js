@@ -96,18 +96,66 @@ collapseExpand('.collapseExpend-pipe', '.with-a-pipe', '.arrow-expend-pipe', '.h
 
 // Функция подтягивания инфы товаров в модалку товаров
 
-let image = document.querySelectorAll('.price');
+let    smallImagePlace = document.querySelector('.about__good-bottom'),
+    bigImagePlace = document.querySelector('.about__good-top'),
+    headImage = document.querySelector('.pipe-good__heading');
 
-function getIt () {
-    image.forEach(item => {
+let modalImgSmall1 = document.createElement('img');
+    modalImgSmall1.className = 'text-img-small';
+
+let modalImgSmall2 = document.createElement('img');
+    modalImgSmall2.className = 'text-img-small';
+
+let modalImgBig1 = document.createElement('img');
+    modalImgBig1.className = 'text-img-big';
+
+let modalImgBig2 = document.createElement('img');
+    modalImgBig2.className = 'text-img-big';
+
+    smallImagePlace.insertAdjacentElement('afterbegin', modalImgSmall2);
+    smallImagePlace.insertAdjacentElement('afterbegin', modalImgSmall1);
+    
+    bigImagePlace.insertAdjacentElement('afterbegin', modalImgBig2);
+    bigImagePlace.insertAdjacentElement('afterbegin', modalImgBig1);
+    
+let goodBlock = document.querySelectorAll('.pipe-good');
+
+function block () {
+    goodBlock.forEach(item => {
         item.addEventListener('click', () => {
-            console.log(item.src);
-        })
+            let image = item.querySelector('img');
+            let imageSource = image.getAttribute('src').slice(13, -4);
+
+            modalImgSmall1.src = 'img/easyflex/' + imageSource + '-large1.png';
+            modalImgSmall2.src = 'img/easyflex/' + imageSource + '-large2.png';
+            
+            modalImgBig1.src = 'img/easyflex/' + imageSource + '-large1.png';
+            modalImgBig2.src = 'img/easyflex/' + imageSource + '-large2.png';
+        });
     });
 }
-getIt();
+block ()
 
+// Функция ховер эффекта на превью картинок в модалке
 
+function hover () {
+    let target = document.querySelectorAll('.text-img-small');
+    target.forEach(item => {
+        item.addEventListener('mouseover', (e) => {
+            e.preventDefault;
+            if (item.getAttribute('src').includes('1') === true) {
+                modalImgBig1.style.display = 'block';
+                modalImgBig2.style.display = 'none';
+            } else {
+                modalImgBig1.style.display = 'none';  
+                modalImgBig2.style.display = 'block'; 
+            }
+            
+        });
+    });
+}
+
+hover();
 
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf("MSIE ");
@@ -1747,3 +1795,20 @@ let slider_app = new Swiper('.swiper-container__app', {
 
 
 
+
+let db = {
+    "goods": [
+        {
+            "img": "img/easyflex/goods__pipe-ellipse.png",
+            "img_large_1": "img/easyflex/goods__pipe-ellipse-large1.png",
+            "img_large_2": "img/easyflex/goods__pipe-ellipse-large2.png",
+            "img_alt": "Овальный воздуховод (соединительный)",
+            "header": "Овальный воздуховод (соединительный)",
+            "about_text":"Гибкий воздуховод из полиэтилена PE с внешним диаметром 140 х 64 мм и внутренним диаметром 90 мм. Гладкая внутренняя стенка воздуховода с двойной стенкой оснащена и добавками для предотвращения накопления пыли и появления бактерий. Ограничение по высоте форма (140 х 64 мм.)позволяют легко устанавливать в фальшстену, потолки, бетон или стяжку. Тихая работа системы воздуховодов достигается за счет большого объема перемещаемого воздушного потока в сочетании с низкой скоросью.",
+            "price": "~ 2 300 руб."
+        },
+        {
+
+        }
+    ]       
+}
