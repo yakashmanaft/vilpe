@@ -96,7 +96,7 @@ collapseExpand('.collapseExpend-pipe', '.with-a-pipe', '.arrow-expend-pipe', '.h
 
 // Функция подтягивания инфы товаров в модалку товаров
 
-let    smallImagePlace = document.querySelector('.about__good-bottom'),
+let smallImagePlace = document.querySelector('.about__good-bottom'),
     bigImagePlace = document.querySelector('.about__good-top'),
     headImage = document.querySelector('.pipe-good__heading');
 
@@ -119,22 +119,44 @@ let modalImgBig2 = document.createElement('img');
     bigImagePlace.insertAdjacentElement('afterbegin', modalImgBig1);
     
 let goodBlock = document.querySelectorAll('.pipe-good');
+let popupGoodsTitle = document.querySelector('.popup-goods-title');
+    
+
 
 function block () {
     goodBlock.forEach(item => {
         item.addEventListener('click', () => {
             let image = item.querySelector('img');
             let imageSource = image.getAttribute('src').slice(13, -4);
+            let blockHeading = item.querySelectorAll('.pipe-good__heading');
 
             modalImgSmall1.src = 'img/easyflex/' + imageSource + '-large1.png';
             modalImgSmall2.src = 'img/easyflex/' + imageSource + '-large2.png';
             
             modalImgBig1.src = 'img/easyflex/' + imageSource + '-large1.png';
             modalImgBig2.src = 'img/easyflex/' + imageSource + '-large2.png';
+
+            function changePopupContent () {
+                let popupGoodPrice = document.querySelector('.popup__price-block_price');
+                let popupGoodText = document.querySelector('.popup__text-content');
+                for (let i = 0; i < db.goods.length; i++) {
+                    // popupGoodsTitle.innerHTML = db.goods[i].header;
+                    // console.log(db.goods[i].header);
+                    blockHeading.forEach(item => {
+                        if (item.textContent === db.goods[i].header) {
+                            popupGoodsTitle.textContent = db.goods[i].header;
+                            popupGoodText.textContent = db.goods[i].about_text;
+                            popupGoodPrice.textContent = db.goods[i].price;
+                        }
+                    });
+                }
+                
+            }
+            changePopupContent ();
         });
     });
 }
-block ()
+block ();
 
 // Функция ховер эффекта на превью картинок в модалке
 
@@ -1799,16 +1821,265 @@ let slider_app = new Swiper('.swiper-container__app', {
 let db = {
     "goods": [
         {
+            "img": 'img/easyflex/goods__pipe-flexible-ellipse.png',
+            "img_large_1": 'img/easyflex/goods__pipe-flexible-ellipse-large1.png',
+            "img_large_2": 'img/easyflex/goods__pipe-flexible-ellipse-large2.png',
+            "img_alt": '',
+            'header': 'Гибкий воздуховод овального сечения',
+            "about_text": 'Гибкий воздуховод из полиэтилена PE с внешним диаметром 140 х 64 мм и эквивалентным внутренним диаметром 90 мм. Гладкая внутренняя стенка воздуховода с двойной стенкой оснащена антистатическими и антибактериальными добавками для предотвращения накопления пыли и появления бактерий. Ограничение по высоте форма (140 х 64 мм.)позволяют легко устанавливать в фальшстену, потолки, бетон или стяжку. Тихая работа системы воздуховодов достигается за счет большого объема перемещаемого воздушного потока в сочетании с низкой скоросnью.',
+            'price': '~ 1 000 руб.'
+        },
+        {
             "img": "img/easyflex/goods__pipe-ellipse.png",
             "img_large_1": "img/easyflex/goods__pipe-ellipse-large1.png",
             "img_large_2": "img/easyflex/goods__pipe-ellipse-large2.png",
             "img_alt": "Овальный воздуховод (соединительный)",
-            "header": "Овальный воздуховод (соединительный)",
-            "about_text":"Гибкий воздуховод из полиэтилена PE с внешним диаметром 140 х 64 мм и внутренним диаметром 90 мм. Гладкая внутренняя стенка воздуховода с двойной стенкой оснащена и добавками для предотвращения накопления пыли и появления бактерий. Ограничение по высоте форма (140 х 64 мм.)позволяют легко устанавливать в фальшстену, потолки, бетон или стяжку. Тихая работа системы воздуховодов достигается за счет большого объема перемещаемого воздушного потока в сочетании с низкой скоросью.",
+            'header': "Овальный воздуховод (соединительный)",
+            "about_text": "Данный тип воздуховода используется для соединения более длинных участков. Представляет собой гибкий воздуховод easyflex  длиной 350мм. с прорезиненными уплотнителями с двухсторон.Гладкая внутренняя поверхность воздуховода обработа специальным антибактериальным и антистатическим покрытием для предотвращения скапливания пыли и роста бактерий.",
             "price": "~ 2 300 руб."
         },
         {
-
+            "img": "img/easyflex/goods__pipe-flexible.png",
+            "img_large_1": "img/easyflex/goods__pipe-flexible-large1.png",
+            "img_large_2": "img/easyflex/goods__pipe-flexible-large2.png",
+            "img_alt": "Гибкий воздуховод Rensen Flexible",
+            'header': "Гибкий воздуховод Rensen Flexible",
+            "about_text": "Данный тип воздуховода используется для соединения более длинных участков. Представляет собой гибкий воздуховод easyflex  длиной 350мм. с прорезиненными уплотнителями с двухсторон. Гладкая внутренняя поверхность воздуховода обработа специальным антибактериальным и антистатическим покрытием для предотвращения скапливания пыли и роста бактерий. Доступен в двух вариантах: d80 или d125 мм.",
+            "price": "~ 1 600 руб."
+        },
+        {
+            "img": "img/easyflex/goods__pipe-circle.png",
+            "img_large_1": "img/easyflex/goods__pipe-circle-large1.png",
+            "img_large_2": "img/easyflex/goods__pipe-circle-large2.png",
+            "img_alt": "Жесткий воздуховод круглого сечения",
+            'header': "Жесткий воздуховод круглого сечения",
+            "about_text": "Данный тип воздуховода используется для соединения более длинных участков. Представляет собой гибкий воздуховод easyflex  длиной 350мм. с прорезиненными уплотнителями с двухсторон. Гладкая внутренняя поверхность воздуховода обработа специальным антибактериальным и антистатическим покрытием для предотвращения скапливания пыли и роста бактерий. Доступен в двух вариантах: d80 или d125 мм.",
+            "price": "~ 1 300 руб."
+        },
+        {
+            'img': 'img/easyflex/goods__horizontal-adapter.png',
+            "img_large_1": "img/easyflex/goods__horizontal-adapter-large1.png",
+            "img_large_2": "img/easyflex/goods__horizontal-adapter-large2.png",
+            "img_alt": 'Горизонтальный адаптер c d125 на плоский овал',
+            'header': 'Горизонтальный адаптер c d125 на плоский овал',
+            'about_text': 'Предназначен для перехода с плоского овала на круглый канал. Диаметр Ø 125 мм используется для помещений с расходом вытяжки 50 м³/ч. Вытяжные решетки могут быть напрямую подключены к прямому редуктору, если он установлен на стене. Адаптеры также могут использоваться в качестве переходного элемента между плоскими овальными каналами и круглыми.',
+            'price': '~ 2 200 руб.'
+        },
+        {
+            'img': "img/easyflex/goods__vertical-adapter.png",
+            "img_large_1": "img/easyflex/goods__vertical-adapter-large1.png",
+            "img_large_2": "img/easyflex/goods__vertical-adapter-large2.png",
+            "img_alt": "Вертикальный переходник 90гр",
+            'header': "Вертикальный переходник 90гр",
+            'about_text': 'Резкие повороты лучше всего делать с помощью гибкого канала Easyflex,  если это невозможно, то можно использовать фиксированные изгибные элементы, такие как вертикальный отвод 90°. Данные элементы используются по той причине, что при монтаже гибких воздуховод, необхожимо избегать их резких изгибов.',
+            'price': "~ 1 400 руб."
+        },
+        {
+            'img': "img/easyflex/goods__horizontal-tap.png",
+            "img_large_1": "img/easyflex/goods__horizontal-tap-large1.png",
+            "img_large_2": "img/easyflex/goods__horizontal-tap-large2.png",
+            "img_alt": "Горизонтальный отвод 90гр",
+            'header': "Горизонтальный отвод 90гр",
+            'about_text': 'Резкие повороты лучше всего делать с помощью гибкого канала Easyflex,  если это невозможно, то можно использовать фиксированные изгибные элементы, такие как вертикальный отвод 90°. Данные элементы используются по той причине, что при монтаже гибких воздуховод, необхожимо избегать их резких изгибов.',
+            'price': "~ 1 400 руб."
+        },
+        {
+            'img': "img/easyflex/goods__corner-adapter.png",
+            "img_large_1": "img/easyflex/goods__corner-adapter-large1.png",
+            "img_large_2": "img/easyflex/goods__corner-adapter-large2.png",
+            "img_alt": "Угловой адаптер 90гр на плоский овал",
+            'header': "Угловой адаптер 90гр на плоский овал",
+            'about_text': "Резкие повороты лучше всего делать с помощью гибкого канала Easyflex,  если это невозможно, то можно использовать фиксированные изгибные элементы, такие как вертикальный отвод 90°. Данные элементы используются по той причине, что при монтаже гибких воздуховод, необхожимо избегать их резких изгибов.",
+            'price': "~ 2 000 руб."
+        },
+        {
+            'img': "img/easyflex/goods__cross-adapter.png",
+            "img_large_1": "img/easyflex/goods__cross-adapter-large1.png",
+            "img_large_2": "img/easyflex/goods__cross-adapter-large2.png",
+            "img_alt": "Крестовый переходник для овального воздуховода",
+            'header': "Крестовый переходник для овального воздуховода",
+            'about_text': "С помощью крестового переходника можно прокладывать пересечения каналов воздуховодов с высотой 65 мм. Опция поворота позволяет выбрать угол, под которым воздуховоды будут пересекать друг друга. Для прокладки воздуховодов под углом 90гр не требуется дополнительных поворотов. С помощью опции “поворот” у крестового переходника можно изменять угол пересечения от 45гр до 135гр. Использование крестового переходника позволяет преодолевать препятствия высотой до 3 см.",
+            'price': "~ 5 500 руб."
+        },
+        {
+            'img': "img/easyflex/goods__junction-box.png",
+            "img_large_1": "img/easyflex/goods__junction-box-large1.png",
+            "img_large_2": "img/easyflex/goods__junction-box-large2.png",
+            "img_alt": "Распределительная коробка на 6 каналов",
+            'header': "Распределительная коробка на 6 каналов",
+            'about_text': "Распределительная коробка, где отвод d160 мм. расположен под углом 90 градусов, к плоскости коробки, к ней можно подключить до 6 вентиляционных каналов. К распределительной коробке можно подсоединить приточные и вытяжные воздуховоды, которые напрямуюподключаются к коробке с помощью металлических скоб (идут в комплекте). Небольшая высота коробки без проблем позволяет устанавливать её в стяжку, бетон, спрятать ее в стену и т.д.",
+            'price': "~ 7 200 руб."
+        },
+        {
+            'img': "img/easyflex/goods__junction-box-straight.png",
+            "img_large_1": "img/easyflex/goods__junction-box-straight-large1.png",
+            "img_large_2": "img/easyflex/goods__junction-box-straight-large2.png",
+            "img_alt": "Распределительная коробка на 6 каналов (прямая)",
+            'header': "Распределительная коробка на 6 каналов (прямая)",
+            'about_text': "Распределительная коробка, где отвод d160 мм. расположен  расположен в  плоскости коробки, к ней можно подключить до 6 вентиляционных каналов. К распределительной коробке можно подсоединить приточные и вытяжные воздуховоды, которые напрямуюподключаются к коробке с помощью металлических скоб (идут в комплекте). Небольшая высота коробки без проблем позволяет устанавливать её в стажку, бетон, спрятать ее в стену и т.д.",
+            'price': "~ 7 200 руб."
+        },
+        {
+            'img': "img/easyflex/goods__junction-box-eight.png",
+            "img_large_1": "img/easyflex/goods__junction-box-eight-large1.png",
+            "img_large_2": "img/easyflex/goods__junction-box-eight-large2.png",
+            "img_alt": "Распределительная коробка на 8 каналов",
+            'header': "Распределительная коробка на 8 каналов",
+            'about_text': "Приток в распределительный блок можно обеспечить с помощью двух каналов Easyflex и к нему можно подключить до 6 каналов. Таким образом, распределительаня коробка может быть размещена по центру и не связана напрямую с основным воздуховодом. К распределительной коробке можно подсоединить приточные и вытяжные воздуховоды, которые напрямуюподключаются к коробке с помощью металлических скоб (идут в комплекте). Небольшая высота коробки без проблем позволяет устанавливать её в стажку, бетон, спрятать ее в стену и т.д.",
+            'price': "~ 6 800 руб."
+        },
+        {
+            'img': "img/easyflex/goods__Y-tee.png",
+            "img_large_1": "img/easyflex/goods__Y-tee-large1.png",
+            "img_large_2": "img/easyflex/goods__Y-tee-large2.png",
+            "img_alt": "Y-тройник (с двух в один)",
+            'header': "Y-тройник (с двух в один)",
+            'about_text': "С помощью Y-тройника можно соединить 2 (Два) вентиляционных канала в один. Таким образом, можно вентилировать два пространства через один основной канал. При реализации подобного подключения, рекомендуется использовать рамки-фланцы для вентиляционных решеток с клапаном бабочкой, для регулировки расхода воздуха.",
+            'price': "~ 3 500 руб."
+        },
+        {
+            'img': "img/easyflex/goods__dual-adapter.png",
+            "img_large_1": "img/easyflex/goods__dual-adapter-large1.png",
+            "img_large_2": "img/easyflex/goods__dual-adapter-large2.png",
+            "img_alt": "Двойной адаптер на d125",
+            'header': "Двойной адаптер на d125",
+            'about_text': "Переходник для бесшовного соединения фланцев вентиляционных решеток с системой воздуховодов. Двойные адаптеры используются для помещений. где требуется повышенная вентиляция и большой расход воздуха. Фланцы вентиляционных решеток могут непсредственно соединяться с воздуховодами (стена из гипсокартона) или с использованием переходника на другом тпе поверхности (например, стена из бетона). Адаптер можно использовать для соединения плоских воздуховодов овального сечения с круглым.",
+            'price': "~ 3 200 руб."
+        },
+        {
+            'img': "img/easyflex/goods__horizontal-dual-adapter.png",
+            "img_large_1": "img/easyflex/goods__horizontal-dual-adapter-large1.png",
+            "img_large_2": "img/easyflex/goods__horizontal-dual-adapter-large2.png",
+            "img_alt": "Горизонтальный двойной адаптер на d125",
+            'header': "Горизонтальный двойной адаптер на d125",
+            'about_text': "Переходник для бесшовного соединения фланцев вентиляционных решеток с системой воздуховодов. Двойные адаптеры используются для помещений. где требуется повышенная вентиляция и большой расход воздуха. Фланцы вентиляционных решеток могут непсредственно соединяться с воздуховодами (стена из гипсокартона) или с использованием переходника на другом тпе поверхности (например, стена из бетона). Адаптер можно использовать для соединения плоских воздуховодов овального сечения с круглым.",
+            'price': "~ 3 200 руб."
+        },
+        {
+            'img': "img/easyflex/goods__сlutch-ellipse.png",
+            "img_large_1": "img/easyflex/goods__сlutch-ellipse-large1.png",
+            "img_large_2": "img/easyflex/goods__сlutch-ellipse-large2.png",
+            "img_alt": "Соединительная муфта, овал",
+            'header': "Соединительная муфта, овал",
+            'about_text': "Соединительная муфта овального сечения с двумя двойными резиновыми уплотнителями, благодаря которым в системе воздуховодов Easyflex достигается почти идеальная герметичность, то есть вероятность утечки воздуха втрое меньше, чем в других системах. Соединение может быть усилено с помощью фиксации на защелки или металлические скобы.",
+            'price': "~ 300 руб."
+        },
+        {
+            'img': "img/easyflex/goods__clutch-circle.png",
+            "img_large_1": "img/easyflex/goods__clutch-circle-large1.png",
+            "img_large_2": "img/easyflex/goods__clutch-circle-large2.png",
+            "img_alt": "Соединительная муфты, круг",
+            'header': "Соединительная муфты, круг",
+            'about_text': "Соединительная муфта круглого сечения (d80 или d125) с двумя двойными резиновыми уплотнителями, благодаря которым в системе воздуховодов Easyflex достигается почти идеальная герметичность, то есть вероятность утечки воздуха втрое меньше, чем в других системах. Соединение может быть усилено с помощью фиксации на защелки или металлические скобы.",
+            'price': "~ 400 руб."
+        },
+        {
+            'img': "img/easyflex/goods__lock.png",
+            "img_large_1": "img/easyflex/goods__lock-large1.png",
+            "img_large_2": "img/easyflex/goods__lock-large2.png",
+            "img_alt": "Защелка для овальных воздуховодов",
+            'header': "Защелка для овальных воздуховодов",
+            'about_text': "Специальные защелки для быстрого крепления воздуховодов Easyflex, защелки всегда устанавливаются попарно. К монтажной поверхности защелки крепятся с помощью винтов или бетонных штифтов. Крепление воздуховодов с помощью защелок значительно упрощает процесс монтажа. Например, при фиксации к потолку - одна защелка крепится к потолку, а затем воздуховод легко закрепляется к ней с помощью второй защелки без инструментов.",
+            'price': "~ 100 руб."
+        },
+        {
+            'img': "img/easyflex/goods__bracket.png",
+            "img_large_1": "img/easyflex/goods__bracket-large1.png",
+            "img_large_2": "img/easyflex/goods__bracket-large2.png",
+            "img_alt": "Скоба монтажная, металлическая",
+            'header': "Скоба монтажная, металлическая",
+            'about_text': "Скоба монтажная используется для крепления воздуховодов Easyflex и их составных частей. К монтажной поверхности скобы крепятся с помощью винтов или бетонных штифтов.",
+            'price': "~ 100 руб"
+        },
+        {
+            'img': "img/easyflex/goods__ventilation-outlet.png",
+            "img_large_1": "img/easyflex/goods__ventilation-outlet-large1.png",
+            "img_large_2": "img/easyflex/goods__ventilation-outlet-large2.png",
+            "img_alt": "Вентиляционный выход на кровле Vilpe",
+            'header': "Вентиляционный выход на кровле Vilpe",
+            'about_text': "Существует различное множество вентиляционных выходов производства компании VILPE, зависит от диаметра воздуховода, типа материала на кровле, поэтому, прежде чем приобретать систему - обсудите подробности со специалистом, где мы разберем какой вариант подходит именно вам.",
+            'price': "~ 9 100 руб."
+        },
+        {
+            'img': "img/easyflex/goods__pass-through-element.png",
+            "img_large_1": "img/easyflex/goods__pass-through-element-large1.png",
+            "img_large_2": "img/easyflex/goods__pass-through-element-large2.png",
+            "img_alt": "Проходной элементы кровли VILPE",
+            'header': "Проходной элементы кровли VILPE",
+            'about_text': "Идеально подходит для уплотнения просветов при установке вентиляционного выхода. У производителя существуют различные варианты цвета и типа. Данный продукт используется исключительной для кровли со скатом.",
+            'price': "~ 1 200 руб."
+        },
+        {
+            'img': "img/easyflex/goods__roof-hatch.png",
+            "img_large_1": "img/easyflex/goods__roof-hatch-large1.png",
+            "img_large_2": "img/easyflex/goods__roof-hatch-large2.png",
+            "img_alt": "Кровельный люк для выхода на крышу Vilpe",
+            'header': "Кровельный люк для выхода на крышу Vilpe",
+            'about_text': "Для удобство выхода на кровлю и осуществления различного рода обслуживающих кровлю работ. Кровельный люк для натуральной черепицы, металлочерепицы и фальцевой кровли. Технический (пожарный) люк для доступа в подкровельное пространство и на крышу. Размеры: отверстие 654х656 мм, общий размер 1180х900х243 мм. Комплект: кровельный люк, UNIROOF уплотнитель гидрозатвора, уплотнитель (Булпрен) 30х80 мм -3 шт., монтажная инструкция, двусторонняя клейкая лента и набор крепежа.",
+            'price': "~ 10 000 руб."
+        },
+        {
+            'img': "img/easyflex/goods__ventilation-grid.png",
+            "img_large_1": "img/easyflex/goods__ventilation-grid-large1.png",
+            "img_large_2": "img/easyflex/goods__ventilation-grid-large2.png",
+            "img_alt": "Сетка вентиляционной решетки",
+            'header': "Сетка вентиляционной решетки",
+            'about_text': "Сетка вентиляционной решётки выполняет роль москитной сетки при использовании в системе естественной вентиляции. Используется вместе с вентиляционной решёткой какого же размера. Выполнена в сером цвете в двух размерных вариантах: 150 х 150 и 240 х 240 ",
+            'price': "~ 450 руб."
+        },
+        {
+            'img': "img/easyflex/goods__external-ventilation-grate.png",
+            "img_large_1": "img/easyflex/goods__external-ventilation-grate-large1.png",
+            "img_large_2": "img/easyflex/goods__external-ventilation-grate-large2.png",
+            "img_alt": "Наружная вентиляционная решетка",
+            'header': "Наружная вентиляционная решетка",
+            'about_text': "Вентиляционная решетка выполняет декартивную роль. Представлена в нескольких цветовых вариантах (красный, бежевый, белый). Может быть окрашена в цвет фасада.",
+            'price': "~ 800 руб."
+        },
+        {
+            'img': "img/easyflex/goods__internal-ventilation-grilles.png",
+            "img_large_1": "img/easyflex/goods__internal-ventilation-grilles-large1.png",
+            "img_large_2": "img/easyflex/goods__internal-ventilation-grilles-large2.png",
+            "img_alt": "Внутренние вентиляционные решетки",
+            'header': "Внутренние вентиляционные решетки",
+            'about_text': "Завершающий декоративный элемент, который скроет от глазах отверстие канала в каждом из помещений,  где осуществляется вытяжка загрязненного воздуха. Решетка производства Бельгия.",
+            'price': "~ 1 400 руб."
+        },
+        {
+            'img': "img/easyflex/goods__timer-switch.png",
+            "img_large_1": "img/easyflex/goods__timer-switch-large1.png",
+            "img_large_2": "img/easyflex/goods__timer-switch-large2.png",
+            "img_alt": "Таймер выключатель для клапана",
+            'header': "Таймер выключатель для клапана",
+            'about_text': "Таймер/включатель VILPE Renson для клапана 'Кух.вытяжка'. Для любителей классического способа регулирования скорости воздушного потока в вытяжке.",
+            'price': "~ 11 000 руб."
+        },
+        {
+            'img': "img/easyflex/goods__switch.png",
+            "img_large_1": "img/easyflex/goods__switch-large1.png",
+            "img_large_2": "img/easyflex/goods__switch-large2.png",
+            "img_alt": "Таймер выключатель для клапана",
+            'header': "Таймер выключатель для клапана",
+            'about_text': "3-ч позиционный переключатель для адаптивной системы вентиляции Healthbox 3. Идеально подходит для любителей консервативных ситлей управления, тех, кому не нравится управлять системой вентиляции со смартфона. ",
+            'price': "~ 5 500 руб."
+        },
+        {
+            'img': "img/easyflex/goods__kitchen-hood.png",
+            "img_large_1": "img/easyflex/goods__kitchen-hood-large1.png",
+            "img_large_2": "img/easyflex/goods__kitchen-hood-large2.png",
+            "img_alt": "Вытяжной элемент для кухни Odormatic",
+            'header': "Вытяжной элемент для кухни Odormatic",
+            'about_text': "Настенная кухонная вытяжка ОК-6 ETNA. Управление: сенсорное, ЖК дисплей. Количество скоростей: 4. Освещение LED: 2х2 Вт Размеры: 60 см Материал: металл со стеклянной панелью. Настроена под ЕCo-вентилятор VILPE.  Есть функция 'зимний старт', активирована после включения вытяжки, вентилятор работает на максимальной скорости в течение 20 сек после старта. Таймер: 9 мин. Дистанционное управление (пульт).",
+            'price': "~ 35 000 руб"
+        },
+        {
+            'img': "img/easyflex/goods__anemostat.png",
+            "img_large_1": "img/easyflex/goods__anemostat-large1.png",
+            "img_large_2": "img/easyflex/goods__anemostat-large2.png",
+            "img_alt": "Анемостат (регулирующий клапан)",
+            'header': "Анемостат (регулирующий клапан)",
+            'about_text': "Доступен в 4 различных версиях: Вытяжной клапан, регулирующий воздушный поток (либо из плстика, либо из аллюминия. Приточный клапан, также, либо из пластика, либо из алюминия. Конструкция: рамка-основание + передняя панель. Выступает от потолка или стены всего на 24мм. Имеет прямое соеднинение с воздуховодами через соединительную муфту d125. Оснащен звукопоглощающим материалом.",
+            'price': "~ 4 200 руб."
         }
     ]       
-}
+};
