@@ -1,0 +1,97 @@
+<!-- Форма "Написать специалисту" -->
+
+<div id="toform" class="popup popup_toform">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="popup__close popup__close"></div>
+			<div class="popup__body-form">
+				<div class="popup__body-address">
+					<div class="header__column-logo">
+						<a href="/"><img src="img/logo.svg" alt="Группа компаний Камини"></a>
+					</div>
+					<div class="header__column-text">Системы адаптивной вентиляции в Перми</div>
+					<div class="text_block">
+						<div class="text">
+							
+							<a href="https://yandex.ru/maps/-/CCUIJKsHdA" target="_blank" class="header__column-email text">г. Пермь. ул. Героев Хасана, 48 корп. 1</a>
+						</div>
+						<div class="text">
+							Офис 201
+						</div>
+						<div class="text">
+							<a href="tel:+73422873737" class="header__column-email text">+7 (342) 287-37-37</a>
+						</div>
+						<div class="text">
+							<a href="mailto:info@camini-pk.ru" class="header__column-email text">info@camini-pk.ru</a>
+						</div>
+						<div class="text">
+							<a href="https://www.camini-pk.ru" target="_blank" class="header__column-email text">www.camini-pk.ru</a>
+							
+						</div>
+					</div>
+				</div>
+				<div class="popup__body-formgroup">
+					<form name="form" id="my_form"  class="form main_form" onsubmit="submitForm(); return false;">
+						<h4 class="popup__title">Оставить заявку</h4>
+						<textarea type="text" id="userMessage" class="form-control form-textarea" placeholder="Опишите суть вопроса"></textarea>
+						<input id="userName" type="text" class="form-control form_input" placeholder="Как к Вам обращаться" required>
+						<div class="form-control-block">
+							<input id="userEmail" class="form-control form-control-block_input form_input _email"  type="email" placeholder="Адрес электронной почты" required>
+							<input id="userPhone" class="form-control form_input form-control-block_input"required type="phone" placeholder="Введите телефон">
+						</div>
+						<div class="checkbox">
+							<input id="checkbox_agree" class="form-control form_checkbox" type="checkbox" value="agree" checked required>
+							<label for="checkbox_agree">Даю согласие <a href="https://camini-pk.ru/privacy-policy/" target="_blank">на обработку</a> персональных данных</label>
+						</div>
+						<p><input class="__btn __btn-form" id="mybtn" type="submit" value="Отправить"> <span id="status"></span></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- //Модалка с видео материалами -->
+
+<div id="video" class="popup popup_video">
+	<div class="popup__content">
+		<div class="popup__body popup__body-video">
+			<div class="popup__close popup__close-w"></div>
+			<div class="popup__video video">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Модалка для товаров -->
+<div id="goods" class="popup popup_goods">
+	<div class="popup__content">
+		<div class="popup__body">
+			<div class="popup__close"></div>
+			<div class="about__good">
+				<div class="about__good-top">
+					
+					<div class='about__good-top-side'>
+						<div class="popup__title"><h4 class="popup-goods-title"></h4></div>
+						<div class="popup__text">
+							<p class="popup__text-content"></p>
+						</div>
+						<div class="popup__price-block">
+							<div class="popup__price-block_text">Стоимость:</div>
+							<div class="popup__price-block_price"></div>
+						</div>
+						<div class="product-type-line"></div>
+						<div class="__btn __btn __btn-consult __btn-consult-popup">
+							<a href="#toform" class="popup-link">Заказать</a>
+							<div class="arrow arrow-consult"></div>
+						</div>
+					</div>
+				</div>
+				<div class="about__good-bottom">
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

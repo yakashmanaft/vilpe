@@ -1,0 +1,347 @@
+//====================================================================================================
+// Смена главного баннера
+
+@media (min-width: 993px) {
+	.widthmax {
+		display: block;
+	}
+	.width992 {
+		display: none;
+	}
+	.width586 {
+		display: none;
+	}
+}
+@media (max-width: 992px) {
+	.width992 {
+		display: block;
+	}
+	.widthmax {
+		display: none;
+	}
+	.width586 {
+		display: none;
+	}
+}
+@media (max-width: 586px) {
+	.width992 {
+		display: none;
+	}
+	.widthmax {
+		display: none;
+	}
+	.width586 {
+		display: block;
+	}
+}
+//====================================================================================================
+
+// system info
+// Шапка
+.system {
+	&__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 30px 0px 0px;
+		p > a {
+			text-decoration: underline;
+			color: $textColor;
+		}
+    }
+    @media (min-width: 890px) {
+        &__head {
+            padding: 50px 0px 30px;
+        }
+    }
+}
+
+// Блок с подробностями о коробке healthbox
+.system__content {
+    display: flex;
+	align-items: center;
+	&-mount {
+		margin-top: 30px;
+	}
+	&-text {
+		width: 705px;
+		p > a {
+			text-decoration: underline;
+			color: $textColor;
+		}
+	}
+}
+@media (min-width: 890px) {
+    .system__content {
+        justify-content: space-between;
+    }
+}
+@media (max-width: 889px) {
+    .system__content {
+        flex-direction: column;
+        &-preview {
+            margin: 50px 0px 0px 0px;
+        }
+        &-img {
+            img {
+                width: 100%;
+            }
+		}
+    }
+}
+
+// Видосик по продукту
+.preview-video {
+	width: 500px;
+	&__valve {
+		display: flex;
+		justify-content: space-between;
+		gap: 30px;
+		width: 100%;
+		padding: 70px 30px 30px 30px;
+		.text-video {
+			width: 600px;
+		}
+	}
+}
+.video-frame {
+	position: relative;
+	&__play {
+		position: absolute;
+		top: 40%;
+		left: 40%;
+		width: 90px;
+		height: 90px;
+	}
+}
+
+.tabcontent {
+	&-valve {
+		.pipe-head {
+			width: 50%;
+		}
+	}
+	&-mount {
+		.pipe-head {
+			width: 50%;
+		}
+	}
+}
+
+// Описание продуктов в подразделах (типа виды клапанов и другие)
+.product-type {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0px 0px 20px 0px;
+	&:last-child{
+		margin: 0px 0px 0px 0px;
+	}
+	&__app {
+		display: flex;
+		align-items: center;
+		& a {
+			margin-top: 15px;
+			margin-left: 15px;
+			&:first-of-type {
+				margin-left: 0;
+			}
+		}
+	}
+	&-line {
+		width: 100%;
+		border-bottom: 1px solid $advancedColor;
+		margin: 20px auto;
+	}
+	&.wlogo { 
+		p {
+			margin-left: 0;
+		}
+		&:first-of-type {
+			margin-top: 40px;
+		}
+		div > p {
+			margin-top: 20px;
+		}
+		div {
+			margin-top: -10px;
+			margin-left: 10px;
+			&:first-of-type {
+				margin-left: 0px;
+			}
+		}
+	}
+}
+
+.product-type.wlogo div>p.wlogo-text {
+	margin-top: 0;
+}
+
+.product-type__logo {
+	img {
+		width: 40px;
+		height: 40px;
+	}
+}
+.product-type__desrc {
+	margin: 0 30px;
+}
+.product-type__price {
+	font-size: 18px!important;
+	white-space: nowrap;
+	color: $headingColor;
+}
+
+.pipe {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 40px;
+	&-head {
+		margin-right: 50px;
+	}
+	&-goods {
+		width: 100%;
+		display: flex;
+		flex: 1 1 auto;
+		flex-wrap: wrap;
+
+		align-items: center;
+		justify-content: flex-start;
+		@media (min-width: 1200px) {
+			gap: 5%!important;
+		}
+	}
+	&-good {
+		img {
+			width: 100%;
+		}
+		@media (min-width: 1399px) {
+			width: 20%;
+			margin: 0 auto;
+			flex: 0 1 auto;
+		}
+		@media (max-width: 1398px) {
+			width: 20%;
+			&__heading {
+				font-size: 14px;
+			}
+			&__price {
+				font-size: 14px!important;
+			}
+		}
+		@media (max-width: 1199px) {
+			width: 22%;
+			margin: 0 10px;
+		}
+		@media (max-width: 767px) {
+			width: 30%;
+			margin: 0 8px;
+			&__heading {
+				font-size: 12px;
+			}
+			&__price {
+				font-size: 12px!important;
+			}
+		}
+		@media (max-width: 567px) {
+			width: 46%;
+			margin: 0 5px;
+			&__heading {
+				font-size: 12px;
+			}
+			&__price {
+				font-size: 12px!important;
+			}
+		}
+		cursor: pointer;
+		&__heading {
+			font-size: 18px;
+			margin-bottom: 15px;
+			padding: 15px 5px 0px 10px;
+			color: $textColor;
+		}
+		&__price {
+			font-size: 18px!important;
+			white-space: nowrap;
+			color: $headingColor;
+			text-align: right;
+			margin-top: 20px;
+			padding: 0px 5px 15px 5px;
+		}
+		&:hover, &:target {
+			-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+			-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+			box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+		}
+	}
+}
+
+// буферный раздел гибкого воздуховода и перекрытия
+
+.flex-pipe {
+	// position: relative;
+	height: 420px;
+	&-img {
+		margin: 0 auto;
+		max-width: 1400px;
+		position: relative;
+		img {
+			width: 100%;
+			z-index: 2;
+			position: absolute;
+			top:0;
+			left: 0;
+		}
+	}
+	&-floor {
+		max-width: 1400px;
+		margin: 0 auto;
+		position: relative;
+		img {
+			width: 100%;
+			position: absolute;
+			top:309px;
+			left: 0;
+			z-index: 1;
+		}
+	}
+}
+
+// Раздел про клапаны
+
+._container{
+	&__valve{
+		&-head {
+			background: url('../img/valve/bg-top.png') center center/cover no-repeat!important;
+		}
+		&-body {
+			background: url('../img/valve/bg-body.png') center center/cover no-repeat;
+			height: 600px;
+		}
+	}
+	&__mount {
+		margin-bottom: 50px!important;
+	}
+}
+.valve{
+	&__head {
+		padding-top: 100px;
+	}
+	&__body {
+		&-line {
+			height: 1px;
+			width: 100%;
+			background-color: $textColor;
+			&_1 {
+				height: 1px;
+				width: 100%;
+				background-color: $advancedColor!important;
+			}
+		}
+	}
+}
+
+
+
+

@@ -1,0 +1,684 @@
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+// Общие стили элементов
+// кнопки
+.__btn {
+	line-height: 1.8;
+	color: $textColor;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	transition: color .25s ease;
+	&-form {
+		width: 159px;
+		height: 50px;
+		margin-top: 50px;
+		justify-content: center;
+		border: 1px solid $advancedColor;
+		background-color: transparent;
+		cursor: pointer;
+		&:hover {
+			border: none;
+			background-color: $headingColor;
+			color: #fff!important;
+			.arrow_form {
+				transition: all 0.3s ease;
+				background: url('../img/icons/arrow-right-white.svg') 0 0 no-repeat;
+			}
+		}
+	}
+	&-consult{
+		margin: 0px 50px 0px 0px;
+		a {
+			color: $headingColor!important;
+			&:hover {
+				color: lighten($headingColor, 10%)!important;
+			}
+		}
+		&-popup {
+			margin-right: 0px;
+			margin-top: 30px;
+		}
+	}
+	.arrow {
+		background: url("../img/icons/arrow-right-gray.svg") 0 0 no-repeat;
+		width: 10px;
+		height: 15px;
+		margin: 0px 0px 0px 15px;
+		cursor: pointer;
+		&-rollup {
+			transform: rotate(270deg);
+		}
+		&-consult{
+			background: url('../img/icons/arrow-right-blue.svg') 0 0 no-repeat;
+		}
+	}
+	&:hover {
+		color: darken($textColor, 10%);
+	}
+	p {
+		text-align: right;
+		cursor: pointer;
+	}
+	a {
+		color: $textColor;
+		transition: color .25s ease;
+		&:hover {
+			color: darken($textColor, 10%);
+		}
+	}
+}	
+.arrow__more {
+	transform: rotate(90deg);
+}
+.arrow-left {
+	transform: rotate(180deg);
+	margin: 0px 1px 0px 0px;
+}
+// Раздел ведет на форму обратной связи
+.need-consult {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 20px 0px 40px 0px;
+
+}
+
+// Заголовок раздела (как сделать климат, как сделать приток, как смонтировать)
+h2 {
+	color: $headingColor;
+	text-transform: uppercase;
+	line-height: 1.4;
+}
+h3 {
+	color: $headingColor;
+	line-height: 1.4;
+	margin: 0px 0px 20px 0px;
+}
+h4 {
+	font-size: 24px;
+	line-height: 1.4;
+	margin: 0px 0px 40px 0px;
+}
+p {
+	line-height: 30px;
+}
+@media (min-width: 1096px) {
+	h2 {
+		font-size: 36px;
+		margin: 0px 0px 30px 0px;
+	}
+	h3 {
+		font-size: 36px;
+		max-width:600px;
+	}
+}
+@media (max-width: 1095px) {
+	h2 {
+		font-size: 24px;
+		margin: 0px 0px 10px 0px;
+	}
+	h3 {
+		font-size: 24px;
+		margin: 0px 0px 10px 0px;
+	}
+}
+
+// Блока с заголовком и описанием в подразделах
+.section-header-box {
+	padding: 30px 0px 30px 0px;
+}
+@media (max-width: 889px){
+	.section-header-box {
+		padding: 20px 0px 30px 0px;
+	}
+}
+
+
+// Подзаголовок раздела (как сделать климат, как сделать приток, как смонтировать)
+.subheading {
+	font-size: 16px;
+	line-height: 1.6;
+}
+@media (min-width: 1096px) {
+	.subheading {
+		font-size: 18px;
+		line-height: 1.6;
+	}
+}
+
+// =============================================================================================================
+// Блок с видосиком
+.video-frame {
+	img {
+		width: 100%;
+	}
+}
+.system__content-img {
+	img {
+		width: 100%;
+	}
+	p {
+		display: block;
+	}
+}
+
+// Заголовок блока с видосиком
+.heading-video {
+	color: $headingColor;
+	font-size: 24px;
+	margin: 0px 0px 20px 0px;
+}
+// блок текста блока с видосиком
+.about-video {
+	margin: 30px 0px 0px 0px;
+}
+// текст в блоке с видосиком
+.text-video {
+	margin-bottom: 30px;
+}
+// =============================================================================================================
+
+//Навигация по деталям раздела (табы и стрелочки)
+li>.nav-more__tab-active {
+	color: red;
+}
+.nav-more {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 40px 0px 15px 0px; 
+	overflow: hidden;
+	@media (min-width: 995px) {
+		&__tabs {
+			font-size: 1.1rem;
+			margin: 0px 2rem 0px 0px;
+		}
+	}
+	@media (max-width: 889px) {
+		&__tabs {
+			overflow: auto;
+			white-space: nowrap;
+			margin: 0px 0px 0px 0px;
+			border-bottom: 1px solid $advancedColor;
+			padding: 0px 0px 10px 0px;
+			&::-webkit-scrollbar {
+				width: 0;
+			}
+		}
+	}
+	&__tabs {
+		display: flex;
+		margin: 0px 1rem 0px 0px;
+		line-height: 1.4;
+		font-size: 1rem;
+	}
+	&__tab {
+		&-active {
+			color: $headingColor!important;
+		}
+		margin: 0px 24px 0px 0px;
+		cursor: pointer;
+		&:last-child{
+			margin: 0px 0px 0px 0px;
+		}
+		transition: color .25s ease;
+		&:hover, &:target {
+			color: $headingColor;
+		}
+	}
+	&__arrow {
+		display: flex;
+	}
+	@media(min-width: 1096px) {
+		&__tab-arrow {
+			width: 75px;
+			height: 75px;
+		}
+	}
+	@media (min-width: 890px) {
+		&__tab-arrow {
+			background-color: $advancedColor;
+			width: 45px;
+			height: 45px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: background-color .25s ease;
+			&:hover {
+				background-color: darken($advancedColor, 10%);
+			}
+		}
+	}
+	&__tab-arrow {
+		display: none;
+	}
+}
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<ГОТОВЫЕ КЛАССЫ>====================================================================================================
+.row:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+.rub:after {
+	content: "₽";
+}
+//====================================================================================================
+%noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+//====================================================================================================
+ol.counter {
+	list-style-type: none;
+	counter-reset: item;
+	li {
+		position: relative;
+		padding: 0px 0px 0px 45px;
+		&:before {
+			counter-increment: item;
+			content: counter(item);
+			position: absolute;
+			left: 0;
+			top: 0;
+			color: #818181;
+			font-size: 14px;
+			font-weight: 700;
+			text-align: center;
+			line-height: 26px;
+			border-radius: 50%;
+			width: 28px;
+			height: 28px;
+			border: 1px solid #4274bb;
+		}
+	}
+}
+//====================================================================================================
+.ellipsis {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.es {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+//====================================================================================================
+.table {
+	display: table;
+	font-size: 0;
+	width: 100%;
+	//table-layout: fixed;
+}
+.trow {
+	display: table-row;
+}
+.cell {
+	display: table-cell;
+	&.full {
+		width: 100%;
+	}
+}
+//====================================================================================================
+._ibg {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+body.ie {
+	._ibg {
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	._ibg img {
+		width: 0;
+		height: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+//====================================================================================================
+.video {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	padding-bottom: 56.25%;
+	video,
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+.videobg {
+	video,
+	iframe,
+	object,
+	embed {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+		background-size: cover;
+	}
+}
+//====================================================================================================
+.moretext {
+	overflow: hidden;
+}
+.moretext__more {
+	cursor: pointer;
+	span {
+		font-style: normal;
+		&:first-child {
+			display: block;
+		}
+		&:last-child {
+			display: none;
+		}
+	}
+	&.active {
+		span {
+			font-style: normal;
+			&:first-child {
+				display: none;
+			}
+			&:last-child {
+				display: block;
+			}
+		}
+	}
+}
+//====================================================================================================
+%graystyle {
+	transition: all 0.3s ease 0s;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	-moz-filter: grayscale(1);
+	-o-filter: grayscale(1);
+}
+%graystyleoff {
+	filter: grayscale(0);
+	-webkit-filter: grayscale(0);
+	-moz-filter: grayscale(0);
+	-o-filter: grayscale(0);
+}
+//====================================================================================================
+#map {
+	background: url("../img/icons/loading.gif") center / 50px no-repeat;
+}
+//====================================================================================================
+// Слайдер свайпер
+._swiper {
+	overflow: hidden;
+	//.swiper-wrapper
+	> div {
+		width: 100%;
+		height: 100%;
+		box-sizing: content-box;
+		display: flex;
+		position: relative;
+	}
+	&.swiper-container-autoheight {
+		> div {
+			align-items: flex-start;
+		}
+	}
+}
+.swiper-wrapper {
+	position: relative;
+}
+.swiper-container-initialized {
+	.swiper-slide {
+		flex-shrink: 0;
+		// transition-property: transform;
+		text-align: center;
+      	font-size: 18px;
+		background: #fff;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;  
+	}
+}
+.swiper-container-android {
+	.swiper-slide,
+	.swiper-wrapper {
+		transform: translate3d(0px, 0, 0);
+	}
+}
+.swiper-button-lock {
+	display: none !important;
+}
+.swiper-container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.swiper-pagination-bullets {
+	// height: 20px;
+	position: absolute;
+	left: 40%;
+	bottom: 0;
+	.swiper-pagination-bullet {
+		height: 20px;
+		width: 20px;
+		background-color: $advancedColor;
+		display: inline-block;
+		border-radius: 50%;
+		margin-left: 10px;
+		cursor:pointer;
+		&:first-child {
+			margin: 0;
+		}
+	}
+	.swiper-pagination-bullet-active {
+		display: inline-block;
+		background-color: $headingColor;
+		cursor:pointer;
+	}
+}
+.swiper-slide {
+	display: flex;
+	align-items: center;
+	// justify-content: space-between;
+	&-right {
+		width: 680px;
+		margin: 0px 0px 50px 50px;
+		text-align: left;
+		p{
+			font-size: 14px;
+			span {
+				color: red;
+			}
+		} 
+		ul {
+			margin-left: 20px;
+			li {
+				list-style: disc;
+				margin-top: 15px;
+			}
+		}
+	}
+	img {
+		width: 100%;
+	}
+}
+
+//====================================================================================================
+.slick-slider {
+	position: relative;
+	.slick-track,
+	.slick-list {
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		-o-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	.slick-list {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+	}
+	.slick-track {
+		position: relative;
+		width: 100%;
+		display: flex;
+	}
+	.slick-slide {
+		position: relative;
+	}
+	.slick-arrow {
+		&.slick-prev {
+		}
+		&.slick-next {
+		}
+	}
+	.slick-dots {
+		li {
+			button {
+			}
+			&.slick-active {
+				button {
+				}
+			}
+		}
+	}
+}
+//=====================================================================================================================
+.tab__item {
+	display: none;
+	&.active {
+		display: block;
+	}
+}
+//=====================================================================================================================
+._tabs {
+}
+._tabs-item {
+}
+._tabs-block {
+	display: none;
+	&._active {
+		display: block;
+	}
+}
+//=====================================================================================================================
+.mirror {
+	transform: scale(-1, 1);
+}
+//=====================================================================================================================
+.nicescroll-rails {
+	z-index: 1000 !important;
+}
+//=====================================================================================================================
+.gm-style {
+}
+.gm-style-iw-t {
+	opacity: 0;
+}
+.baloon {
+	opacity: 1;
+	right: -7px !important;
+	bottom: 80px !important;
+	button {
+		display: none !important;
+	}
+	&:after {
+		display: none !important;
+	}
+}
+.baloon-style {
+	display: none;
+}
+.baloon-content.gm-style-iw {
+	opacity: 1;
+	border-radius: 0px !important;
+	max-width: 300px !important;
+	padding: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	overflow: visible !important;
+	> .gm-style-iw-d {
+		overflow: hidden !important;
+		max-width: none !important;
+	}
+	&:after {
+		display: none !important;
+	}
+}
+.baloon-close {
+	top: 18px !important;
+}
+//========================================================================================================================================================
+._custom-scroll {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 3px;
+	height: 100%;
+	z-index: 1000;
+	//background-color: rgba(0, 0, 0, 0.1);
+	&__line {
+		background-color: rgba(0, 0, 0, 0.5);
+		border-radius: 3px 0 0 3px;
+		position: relative;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+}
+//</ГОТОВЫЕ КЛАССЫ>====================================================================================================
+.hide{display: none}
+.show{display: block}
+.fade{animation-name: fade;animation-duration: 1.5s;}
+@keyframes fade{from{opacity: 0.1;}to{opacity: 1;}}
+
+// Кнопка вверх
+.back_to_top {
+	opacity: 0;
+	width: 26px ;
+	height: 26px;
+	position: fixed;
+	bottom: 50px;
+	right: 5%;
+	z-index: 30;
+	background-color: #fff;
+	cursor: pointer;
+	transition: 1s all;
+} 
